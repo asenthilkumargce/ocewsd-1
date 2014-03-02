@@ -1,5 +1,8 @@
 *.class
+<<<<<<< HEAD
 .classpath
+=======
+>>>>>>> d38ab2fc83d6265c497b05fdf5357a3b6cd945d8
 
 # Package Files #
 *.jar
