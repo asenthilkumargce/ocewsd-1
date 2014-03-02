@@ -1,0 +1,11 @@
+
+curl -i http://localhost:8080/jwsurCh2_3/resourcesP/xml
+
+curl -i http://localhost:8080/jwsurCh2_3/resourcesP/json
+
+curl -i -X DELETE http://localhost:8080/jwsurCh2_3/resourcesP/delete/1
+
+curl -i -X POST -d "who=Mark Zuckeberg&what=TheFaceBook&when=2002" http://localhost:8080/jwsurCh2_3/resourcesP/create
+
+curl -i -X PUT -d "id=3&when=2020" http://localhost:8080/jwsurCh2_3/resourcesP/update
+

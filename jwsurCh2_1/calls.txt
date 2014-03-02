@@ -1,0 +1,3 @@
+curl http://localhost:8080/jwsurCh2_1/
+
+curl --header "Accept: application/json" http://localhost:8080/jwsurCh2_1/
