@@ -30,6 +30,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
+import com.restful.amazon.KeyHelper;
+
 /*
  * This class shows how to make a simple authenticated ItemLookup call to the
  * Amazon Product Advertising API.
@@ -41,13 +43,13 @@ public class ItemLookupSample {
     /*
      * Your AWS Access Key ID, as taken from the AWS Your Account page.
      */
-	private static final String AWS_ACCESS_KEY_ID = "xx";
+	private static String AWS_ACCESS_KEY_ID = null;
 
     /*
      * Your AWS Secret Key corresponding to the above ID, as taken from the AWS
      * Your Account page.
      */
-    private static final String AWS_SECRET_KEY = "xx";
+    private static String AWS_SECRET_KEY = null;
 
     /*
      * Use one of the following end-points, according to the region you are
@@ -72,7 +74,8 @@ public class ItemLookupSample {
 
     public static void main(String[] args) {
   	
-    	
+    	AWS_ACCESS_KEY_ID = KeyHelper.getAccessKeyId();
+    	AWS_SECRET_KEY = KeyHelper.getSecretAccessKey();
     	/*
          * Set up the signed requests helper 
          */

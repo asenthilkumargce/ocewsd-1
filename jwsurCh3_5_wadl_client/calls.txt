@@ -1,0 +1,9 @@
+jwsurCh3_5_wadl_client
+
+
+// run upon application.wadl of predictions3
+E:\JAVA\Certification\OCEWSD\wadl-dist-1.1.6-bin\wadl-dist-1.1.6\bin>
+wadl2java -o c:\zzz -s jaxrs20 -p com.wadl application.wadl
+
+Info: Processing: file:/E:/JAVA/Certification/OCEWSD/wadl-dist-1.1.6-bin/wadl-di
+st-1.1.6/bin/application.wadl
