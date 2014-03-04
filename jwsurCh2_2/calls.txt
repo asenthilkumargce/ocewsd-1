@@ -1,3 +1,7 @@
+adages
+RESTful (jersey)/XML/JSON (jackson)
+JAX-RS resource
+
 curl http://localhost:9876/resourcesA/
 
 

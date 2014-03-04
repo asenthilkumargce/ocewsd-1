@@ -1,0 +1,2 @@
+adages2
+RESTful / Restlet / XML / JSON

@@ -1,3 +1,8 @@
+predictions3
+RESTful (jersey)/XML/JSON (jackson)
+JAX-RS resource
+WADL
+
 http://localhost:8080/jwsurCh2_3/resourcesP/application.wadl
 
 curl -i http://localhost:8080/jwsurCh2_3/resourcesP/xml
