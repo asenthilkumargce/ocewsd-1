@@ -1,0 +1,26 @@
+JAX-WS @WebService
+SOAP / XML
+
+Using the RandPublisher class: (javax.xml.ws.Endpoint.publish)
+
+	service root:
+	http://localhost:8888/rs
+
+	service WSDL:
+	http://localhost:8888/rs?wsdl
+
+	XML Schema:
+	http://localhost:8888/rs?xsd=1
+	
+
+Using TomCat:
+	
+	service root:
+	http://localhost:8080/jwsurCh4_2_random2_sei/
+
+	service WSDL:
+	http://localhost:8080/jwsurCh4_2_random2_sei?wsdl
+
+	XML Schema:
+	http://localhost:8080/jwsurCh4_2_random2_sei?xsd=1
+			
