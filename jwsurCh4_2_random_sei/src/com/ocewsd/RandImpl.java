@@ -23,11 +23,14 @@ public class RandImpl implements RandService {
 
 	@WebMethod
 	public int next1() {
+		System.out.println("int next1()");
 		return new Random().nextInt();
 	}
 
 	@WebMethod
 	public int[] nextN(final int n) {
+		System.out.println("int[] nextN(final int n)");
+		System.out.println("\t param: " + n);
 		final int k = (n > maxRands) ? maxRands : Math.abs(n);
 		int[] rands = new int[k];
 		Random r = new Random();

@@ -33,8 +33,8 @@ public interface RandService {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "nextN", targetNamespace = "http://ocewsd.com/", className = "client.NextN")
-    @ResponseWrapper(localName = "nextNResponse", targetNamespace = "http://ocewsd.com/", className = "client.NextNResponse")
+    @RequestWrapper(localName = "nextN", targetNamespace = "http://ocewsd.com/", className = "com.ocewsd.client.NextN")
+    @ResponseWrapper(localName = "nextNResponse", targetNamespace = "http://ocewsd.com/", className = "com.ocewsd.client.NextNResponse")
     @Action(input = "http://ocewsd.com/RandService/nextNRequest", output = "http://ocewsd.com/RandService/nextNResponse")
     public List<Integer> nextN(
         @WebParam(name = "arg0", targetNamespace = "")
@@ -47,8 +47,8 @@ public interface RandService {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "next1", targetNamespace = "http://ocewsd.com/", className = "client.Next1")
-    @ResponseWrapper(localName = "next1Response", targetNamespace = "http://ocewsd.com/", className = "client.Next1Response")
+    @RequestWrapper(localName = "next1", targetNamespace = "http://ocewsd.com/", className = "com.ocewsd.client.Next1")
+    @ResponseWrapper(localName = "next1Response", targetNamespace = "http://ocewsd.com/", className = "com.ocewsd.client.Next1Response")
     @Action(input = "http://ocewsd.com/RandService/next1Request", output = "http://ocewsd.com/RandService/next1Response")
     public int next1();
 
