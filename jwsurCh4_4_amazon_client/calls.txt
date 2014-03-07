@@ -1,1 +1,10 @@
 Amazon SOAP client
+
+wsimport -p com.ocewsd.amazon.client.soap.bare -keep http://webservices.a
+mazon.com/AWSECommerceService/AWSECommerceService.wsdl -b custom.xml
+
+wsimport -p com.ocewsd.amazon.client.soap.wrapped -keep http://webservice
+s.amazon.com/AWSECommerceService/AWSECommerceService.wsdl
+
+
+
