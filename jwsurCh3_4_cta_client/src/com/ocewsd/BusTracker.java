@@ -9,11 +9,7 @@ public class BusTracker {
 	private static final String baseUrl = "http://www.ctabustracker.com/bustime/api/v1/";
 
 	public static void main(String[] args) {
-		if (args.length < 1) {
-			System.err.println("BusTracker <CTA key>");
-			return;
-		}
-		new BusTracker().demo("?key=" + args[0]);
+		new BusTracker().demo("?key=" + KeyHelper.getSecretAccessKey());
 	}
 
 	private void demo(String key) {
@@ -30,6 +26,8 @@ public class BusTracker {
 	}
 
 	private void makeRequest(String stringUrl) {
+		System.out.println("URL: ");
+		System.out.println("\t" + stringUrl);
 		String response = null;
 		try {
 			URL url = new URL(stringUrl);

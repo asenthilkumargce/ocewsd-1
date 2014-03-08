@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="jwsurCh5_1_predctions_soap">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="context-root" value="jwsurCh5_1_predctions_soap"/>
+        <property name="java-output-path" value="/jwsurCh5_1_predctions_soap/build/classes"/>
+    </wb-module>
+</project-modules>
