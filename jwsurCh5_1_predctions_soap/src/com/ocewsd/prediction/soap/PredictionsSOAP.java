@@ -12,8 +12,8 @@ import javax.xml.ws.WebServiceContext;
 import javax.xml.ws.handler.MessageContext;
 
 @WebService
+@HandlerChain(file = "/serviceHandler.xml")
 public class PredictionsSOAP {
-
 	@Resource
 	private WebServiceContext wsCtx;
 	private ServletContext sCtx;
@@ -22,8 +22,11 @@ public class PredictionsSOAP {
 
 	@WebMethod
 	public List<Prediction> getAll() {
+		System.out.println("	public List<Prediction> getAll()..");
 		init();
-		return predictions.getPredictions();
+		List<Prediction> list = predictions.getPredictions(); 
+		System.out.println("Size: " + list.size());
+		return list;
 	}
 
 	@WebMethod
@@ -32,17 +35,37 @@ public class PredictionsSOAP {
 		return predictions.getPrediction(id);
 	}
 
-	private void init() {
-		if (wsCtx == null)
-			throw new RuntimeException("DI failed on wsCtx!");
-		if (sCtx == null) { // ServletContext not yet set?
-			MessageContext mCtx = wsCtx.getMessageContext();
-			sCtx = (ServletContext) mCtx.get(MessageContext.SERVLET_CONTEXT);
-			predictions.setServletContext(sCtx);
-		}
+	@WebMethod
+	public String create(String who, String what) throws VerbosityException {
+		int count = wordCount(what);
+		if (count > maxLength)
+			throw new VerbosityException(count + " is too verbose!", "Max words: " + maxLength);
+		init();
+		Prediction p = new Prediction();
+		p.setWho(who);
+		p.setWhat(what);
+		int id = predictions.addPrediction(p);
+		String msg = "Prediction " + id + " created.";
+		return msg;
 	}
 
-	//****
+	@WebMethod
+	public String edit(int id, String who, String what) throws VerbosityException {
+		int count = wordCount(what);
+		if (count > maxLength)
+			throw new VerbosityException(count + " is too verbose!", "Max words: " + maxLength);
+		init();
+		String msg = "Prediction " + id + " not found.";
+		Prediction p = predictions.getPrediction(id);
+		if (p != null) {
+			if (who != null)
+				p.setWho(who);
+			if (what != null)
+				p.setWhat(what);
+			msg = "Prediction " + id + " updated.";
+		}
+		return msg;
+	}
 
 	@WebMethod
 	public String delete(int id) {
@@ -56,14 +79,19 @@ public class PredictionsSOAP {
 		return msg;
 	}
 
+	private void init() {
+		if (wsCtx == null)
+			throw new RuntimeException("DI failed on wsCtx!");
+		if (sCtx == null) { // ServletContext not yet set?
+			MessageContext mCtx = wsCtx.getMessageContext();
+			sCtx = (ServletContext) mCtx.get(MessageContext.SERVLET_CONTEXT);
+			predictions.setServletContext(sCtx);
+		}
+	}
+
 	private int wordCount(String words) {
 		if (words == null)
 			return -1;
 		return words.trim().split("\\s+").length;
-	}
-
-	@WebMethod
-	public String edit(int id, String who, String what) throws VerbosityException {
-		return null;
 	}
 }
