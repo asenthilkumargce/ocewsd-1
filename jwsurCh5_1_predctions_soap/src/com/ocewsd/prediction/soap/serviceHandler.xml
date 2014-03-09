@@ -2,8 +2,8 @@
 <handler-chains xmlns="http://java.sun.com/xml/ns/javaee">
   <handler-chain>
     <handler>
-      <handler-name>com.ocewsd.prediction.soap.ServiceHashHandler</handler-name>
-      <handler-class>com.ocewsd.prediction.soap.ServiceHashHandler</handler-class>
+      <handler-name>com.ocewsd.prediction.soap.handler.ServiceHashHandler</handler-name>
+      <handler-class>com.ocewsd.prediction.soap.handler.ServiceHashHandler</handler-class>
     </handler>
   </handler-chain>
 </handler-chains>

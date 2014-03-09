@@ -1,33 +1,29 @@
-package com.ocewsd.prediction.soap;
+package com.ocewsd.prediction.soap.handler;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Set;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.TimeZone;
-import java.util.Iterator;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Set;
+import java.util.TimeZone;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import javax.xml.namespace.QName;
-import javax.xml.soap.SOAPHeader;
 import javax.xml.soap.SOAPBody;
-import javax.xml.soap.SOAPFault;
-import javax.xml.soap.SOAPMessage;
-import javax.xml.ws.soap.SOAPFaultException;
 import javax.xml.soap.SOAPException;
-import javax.xml.ws.handler.Handler;
+import javax.xml.soap.SOAPFault;
+import javax.xml.soap.SOAPHeader;
+import javax.xml.soap.SOAPMessage;
 import javax.xml.ws.handler.MessageContext;
 import javax.xml.ws.handler.soap.SOAPHandler;
 import javax.xml.ws.handler.soap.SOAPMessageContext;
+import javax.xml.ws.soap.SOAPFaultException;
 
 import org.apache.commons.codec.binary.Base64;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
+import com.ocewsd.prediction.soap.DataStore;
 
 public class ServiceHashHandler implements SOAPHandler<SOAPMessageContext> {
 	private byte[] secretBytes;
@@ -58,6 +54,10 @@ public class ServiceHashHandler implements SOAPHandler<SOAPMessageContext> {
 			try {
 				SOAPMessage msg = mCtx.getMessage();
 				SOAPHeader soapHeader = msg.getSOAPHeader();
+				
+				msg.writeTo(System.out);
+				System.out.println("");
+				
 				if (soapHeader == null)
 					generateFault(msg, "No header!");
 
