@@ -41,11 +41,12 @@ public class ClientHashHandler implements SOAPHandler<SOAPMessageContext> {
 		try {
 			SOAPMessage msg = mCtx.getMessage();
 			msg.writeTo(System.err);
-			
+			System.out.println("\n ");
 		} catch (Exception e) {
+			
 			throw new RuntimeException(e);
 		}
-		System.out.println("\n");
+		
 		return true;
 	}
 

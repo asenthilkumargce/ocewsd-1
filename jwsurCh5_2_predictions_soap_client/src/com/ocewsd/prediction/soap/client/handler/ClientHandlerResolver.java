@@ -33,6 +33,7 @@ public class ClientHandlerResolver implements HandlerResolver {
 
 	public List<Handler> getHandlerChain(PortInfo portInfo) {
 		List<Handler> handlerChain = new ArrayList<Handler>();
+		handlerChain.add(new IdHandler());
 		handlerChain.add(new ClientHashHandler(this.name, this.key));
 		return handlerChain;
 	}

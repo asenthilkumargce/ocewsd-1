@@ -69,12 +69,16 @@ public class PredictionsSOAP {
 
 	@WebMethod
 	public String delete(int id) {
+		System.out.println("Deleting: " + id);
 		init();
 		String msg = "Prediction " + id + " not found.";
 		Prediction p = predictions.getPrediction(id);
 		if (p != null) {
 			predictions.getMap().remove(id);
 			msg = "Prediction " + id + " removed.";
+		}else{
+			System.err.println("Id not found!");
+			
 		}
 		return msg;
 	}

@@ -18,7 +18,7 @@ public class PredictionsClient {
 
 	public static void main(String[] args) {
 		try {
-			String name = "curlye";
+			String name = "curly";
 			String key = "CurlyCurlyCurly";
 			
 			
@@ -39,7 +39,7 @@ public class PredictionsClient {
 
 			System.out.println("\nDeleting one... ");
 			Delete deleteParam = new Delete();
-			deleteParam.setArg0(4);
+			deleteParam.setArg0(-3);
 			port.delete(deleteParam);
 			
 			PredictionsClient.listAll(port);

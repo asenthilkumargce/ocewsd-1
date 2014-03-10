@@ -48,8 +48,8 @@ public class ServiceHashHandler implements SOAPHandler<SOAPMessageContext> {
 
 	public boolean handleMessage(SOAPMessageContext mCtx) {
 		System.out.println("	public boolean handleMessage(SOAPMessageContext mCtx) ");
-		System.out.println("	MESSAGE_OUTBOUND_PROPERTY: " + mCtx.get(MessageContext.MESSAGE_OUTBOUND_PROPERTY));
 		Boolean outbound = (Boolean) mCtx.get(MessageContext.MESSAGE_OUTBOUND_PROPERTY);
+		System.out.println("	MESSAGE_OUTBOUND_PROPERTY: " + outbound);
 		if (!outbound) {
 			try {
 				SOAPMessage msg = mCtx.getMessage();
