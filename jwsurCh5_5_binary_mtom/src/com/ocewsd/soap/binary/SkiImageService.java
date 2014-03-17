@@ -6,6 +6,7 @@ package com.ocewsd.soap.binary;
 
 import javax.jws.WebService;
 import javax.jws.WebMethod;
+import javax.xml.ws.BindingType;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -21,12 +22,15 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
+import javax.xml.ws.soap.SOAPBinding;
 
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageInputStream;
 import javax.imageio.ImageReader;
 
-@WebService
+
+@WebService(wsdlLocation = "mtom.wsdl")
+@BindingType(value = SOAPBinding.SOAP11HTTP_MTOM_BINDING)
 public class SkiImageService {
 	private Map<String, String> photos;
 
